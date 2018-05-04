@@ -14,7 +14,6 @@ const { Post } = require('./models');
 
 const app = express();
 app.use(express.json());
-app.use(morgan('common'));
 
 // GET requests to /restaurants => return 10 restaurants
 app.get('/posts', (req, res) => {
