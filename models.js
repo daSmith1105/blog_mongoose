@@ -1,15 +1,17 @@
 'use strict';
 
 const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 
 // this is our schema to represent a restaurant
 const postSchema = mongoose.Schema({
     title: { type: String, required: true },
     content: { type: String, required: true },
     author: {
-        firstName: { type: String, required: true },
-        lastName: { type: String, required: true }
-    }
+        firstName: String,
+        lastName: String
+    },
+    created: { type: Date, default: Date.now }
 });
 
 // *virtuals* (http://mongoosejs.com/docs/guide.html#virtuals)
@@ -31,6 +33,7 @@ postSchema.methods.serialize = function() {
         title: this.title,
         content: this.cuisine,
         author: this.authorName
+        created: this.created
     };
 }
 
