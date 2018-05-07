@@ -32,7 +32,7 @@ postSchema.methods.serialize = function() {
         id: this._id,
         title: this.title,
         content: this.cuisine,
-        author: this.authorName
+        author: this.authorName,
         created: this.created
     };
 }
